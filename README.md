@@ -1,4 +1,4 @@
-![alt text](https://github.com/reliableJARED/OriginLab/logo.png "OriginLab")
+![alt text](https://github.com/reliableJARED/OriginLab/raw/master/logo.png "OriginLab")
 # OriginLab
 Scripting and customization examples for Origin graphing and analysis software.
 [http://originlab.com/]
