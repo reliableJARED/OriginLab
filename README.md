@@ -1,5 +1,5 @@
 ![alt text](https://github.com/reliableJARED/OriginLab/raw/master/logo.png "OriginLab")
-Scripting and customization examples for Origin graphing and analysis software.
+
 [http://originlab.com/]
 
 
