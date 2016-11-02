@@ -7,7 +7,7 @@ class HelloWorldDlg: public HTMLDlg
 public:
 	string GetInitURL() //get the path of html file                    
 	{
-		string strFile = __FILE__; //Directory for path THIS HelloWorldDlg.cpp file
+		string strFile = __FILE__; //Directory path for THIS HelloWorldDlg.cpp file
 		return GetFilePath(strFile) + "index.html";//our HTML is in the same directory
 	}
 };
