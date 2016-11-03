@@ -2,13 +2,13 @@
 #include <..\OriginLab\DialogEx.h>
 #include <..\OriginLab\HTMLDlg.h>
 
-//This example shows javascript telling Origin to create a graph
+//This example shows javascript pass Origin a LabTalk command
 class HTMLtoLabtalk: public HTMLDlg 
 {
 public:
 	
 	string GetInitURL() { 
-		//GetFilePath(__FILE__) will give us the directory of THIS cpp file. Our HTML is in the same directory
+		//GetFilePath(__FILE__) will give the directory of THIS cpp file. Our HTML is in the same directory
 		return GetFilePath(__FILE__) + "LTconnect.html";
 	}
 	//the display title on the HTML dialog window
