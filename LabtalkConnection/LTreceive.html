@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="initial-scale=1.0">
+    	<meta charset="utf-8">
+	</head>
+	<body>
+	
+		<div id="labtalk_input_container"></div>
+		
+			<div id="instruction_header">Receive Data From Origin</div>
+			
+			<div id="input">
+				<input type="button" id="LT_execute" value="Get Data" />
+				<p>Click to get the data in Column A, Row 1 of Book1 in Origin</p>
+			</div>
+			
+			<div id="data"></div>
+		</div>
+		
+	<script>
+			//rawLabtalk() gets an int from Origin
+    		function rawLabtalk(labtalkCMD) {
+				//IMPORTANT! window.external.ExtCall() is how we map from Javascript back to OriginC
+    			var data = window.external.ExtCall("OlabtalkCMD");
+				document.getElementById("data").innerHTML = data.toString();
+    		}
+			
+			//Click event for our button
+			document.getElementById("LT_execute").onclick = function(){
+					rawLabtalk();
+			}
+			
+    	</script>
+
+	</body>
+</html>

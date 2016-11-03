@@ -17,7 +17,7 @@ public:
 protected:
 	//Our HTML page sends strings which are labtalk commands.
 	//this cpp file simply talkes the labtalk cmds and runs them
-	void OlabtalkCMD(string labtalkString);
+	bool OlabtalkCMD(string labtalkString);
 	
 public:
 	//this is for mapping OriginC and HTML functions
@@ -29,10 +29,13 @@ BEGIN_DISPATCH_MAP(HTMLtoLabtalk, HTMLDlg)
 	DISP_FUNCTION(HTMLtoLabtalk, OlabtalkCMD, VTS_VOID, VTS_STR)
 END_DISPATCH_MAP
 
-//accepts a string which is an inbound labtalk command from HTML 
-void HTMLtoLabtalk::OlabtalkCMD(string labtalkString)
+//accepts a string from HTML dialog
+bool HTMLtoLabtalk::OlabtalkCMD(string labtalkString)
 {
-	LT_execute(labtalkString);
+	//run our string a labtalk command 
+	bool sucess = LT_execute(labtalkString);
+	//tell our HTML if the labtalk command worked
+	return sucess;
 }
 
 //open a script window in origin and type:

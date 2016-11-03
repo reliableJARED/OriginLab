@@ -8,20 +8,27 @@
 	
 		<div id="labtalk_input_container"></div>
 		
-			<div id="instruction_header">Type a LabTalk command</div>
+			<div id="instruction_header">Type a LabTalk Command</div>
 			
 			<div id="input">
-				<input type="text" id="LT_execute" />
+				<input type="text" id="LT_execute" size="50"/>Press <b>Enter</b> to Execute
 			</div>
 			
-			<div id="instruction_footer">Then press <b>Enter</b></div>
+			<div id="sucess"></div>
 		</div>
 		
 	<script>
 			//rawLabtalk() passes a string to OriginC
     		function rawLabtalk(labtalkCMD) {
 				//IMPORTANT! window.external.ExtCall() is how we map from Javascript back to OriginC
-    			window.external.ExtCall("OlabtalkCMD",labtalkCMD);
+				//our function 'OlabtalkCMD' returns TRUE or FALSE if the command worked
+    			var sucess = window.external.ExtCall("OlabtalkCMD",labtalkCMD);
+				
+				//get our message display div
+				var msgArea = document.getElementById("sucess");
+				if(sucess){
+					msgArea.innerHTML = "That command was <b style="+"color:green"+">Accepted</b>!"}
+				else{msgArea.innerHTML = "That command <b style="+"color:red"+">Failed</b>!"}
     		}
 			
 			//add a keyup listener to our input box.
