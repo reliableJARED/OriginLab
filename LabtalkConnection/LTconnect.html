@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="initial-scale=1.0">
+    	<meta charset="utf-8">
+	</head>
+	<body>
+	
+		<div id="labtalk_input_container"></div>
+		
+			<div id="instruction_header">Type a LabTalk command</div>
+			
+			<div id="input">
+				<input type="text" id="LT_execute" />
+			</div>
+			
+			<div id="instruction_footer">Then press <b>Enter</b></div>
+		</div>
+		
+	<script>
+			//rawLabtalk() passes a string to OriginC
+    		function rawLabtalk(labtalkCMD) {
+				//IMPORTANT! window.external.ExtCall() is how we map from Javascript back to OriginC
+    			window.external.ExtCall("OlabtalkCMD",labtalkCMD);
+    		}
+			
+			//add a keyup listener to our input box.
+			//when the 'enter' key is LIFTED, that will call our function
+			document.getElementById("LT_execute").onkeyup = function(key){
+				if(key.keyCode === 13){
+					rawLabtalk(this.value);
+					this.value = "";//clear the input box
+				}
+			}
+			
+    	</script>
+
+	</body>
+</html>
