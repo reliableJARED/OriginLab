@@ -23,19 +23,23 @@ public:
 	DECLARE_DISPATCH_MAP
 };
 
+//VTS_I4 = int, VTS_STR = string, VTS_R8 = double, VTS_VOID = void
 BEGIN_DISPATCH_MAP(HTMLtoLabtalk, HTMLDlg)
 	//mapping OriginC with HTML. syntax is (class, function, return type, argument type)
 	DISP_FUNCTION(HTMLtoLabtalk, OlabtalkCMD, VTS_R8, VTS_VOID)
+
 END_DISPATCH_MAP
 
 //returns data from current workbook[worksheet]
 double HTMLtoLabtalk::OlabtalkCMD(void)
 {	
-	//for arbitrary worksheets syntax: %([Book1]Sheet1, row, col)=
-	//default returns a double, put a $ before the equal sign to return a string
+	
 	double value;
-	//run our LT and assign the result of the LT commad to value
-	LT_evaluate("%([Book1]Sheet1, 1, 1)=", &value);
+	
+	//returns a double end with $ to return a string: cell(1,1)$
+	LT_evaluate("cell(1,1)$", &value);
+	//for arbitrary worksheets syntax: %([Book1]Sheet1, row, col)
+
 	return value;
 
 }

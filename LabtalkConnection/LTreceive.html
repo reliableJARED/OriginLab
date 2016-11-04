@@ -23,7 +23,7 @@
     		function rawLabtalk(labtalkCMD) {
 				//IMPORTANT! window.external.ExtCall() is how we map from Javascript back to OriginC
     			var data = window.external.ExtCall("OlabtalkCMD");
-				document.getElementById("data").innerHTML = data.toString();
+				document.getElementById("data").innerHTML = data;
     		}
 			
 			//Click event for our button
